@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Beer Register</string>
+
+    <string name="liste">Beer List</string>
+
+    <string name="recherche">Search Beer</string>
+
+    <string name="PageSearch">Register Search</string>
+
+    <string name="PageList">Register List</string>
+</resources>

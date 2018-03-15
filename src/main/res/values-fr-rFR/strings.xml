@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Registre de bière</string>
+
+    <string name="liste">Liste de bière</string>
+
+    <string name="recherche">Recherche une bière</string>
+
+    <string name="PageSearch">Rechercher dans le registre</string>
+
+    <string name="PageList">Liste du registre</string>
+</resources>
