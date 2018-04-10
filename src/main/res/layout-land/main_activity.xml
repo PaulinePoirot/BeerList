@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/btn_BeerList"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_above="@+id/btn_SearchBeer"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="74dp"
+        android:onClick="listActivity"
+        android:text="@string/liste" />
+
+    <Button
+        android:id="@+id/btn_SearchBeer"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_alignBottom="@+id/imageView"
+        android:layout_alignStart="@+id/btn_BeerList"
+        android:layout_marginBottom="148dp"
+        android:onClick="searchActivity"
+        android:text="@string/recherche" />
+
+
+
+
+</LinearLayout>
