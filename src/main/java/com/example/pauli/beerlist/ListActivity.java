@@ -6,7 +6,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
-import android.support.v4.app.NotificationManagerCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.app.ProgressDialog;
 
@@ -23,6 +22,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.gson.Gson;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -43,7 +43,7 @@ public class ListActivity extends AppCompatActivity {
     private RecyclerView.Adapter adapter;
     NotificationCompat.Builder mBuilder =
             new NotificationCompat.Builder(this)
-                   // .setSmallIcon(R.drawable.abc)
+                   .setSmallIcon(R.drawable.beer_icon)
                     .setContentTitle("Notifications Example")
                     .setContentText("This is a test notification");
 
@@ -100,6 +100,7 @@ public class ListActivity extends AppCompatActivity {
                         beerType.setCreateDate(jsonObject.getString("createDate"));
 
                         typeList.add(beerType);
+
                     } catch (JSONException e) {
                         e.printStackTrace();
                         progressDialog.dismiss();
@@ -108,6 +109,7 @@ public class ListActivity extends AppCompatActivity {
                 Log.d("myTag", adapter.toString());
                 adapter.notifyDataSetChanged();
                 progressDialog.dismiss();
+                notification();
 
 
             }
@@ -122,7 +124,7 @@ public class ListActivity extends AppCompatActivity {
         requestQueue.add(jsonObjectRequest);
 
 
-        //notification();
+
     }
 
     @Override
@@ -142,12 +144,10 @@ public class ListActivity extends AppCompatActivity {
     }
 
     public void notification(){
-               Intent notificationIntent = new Intent(this, MainActivity.class);
-        PendingIntent contentIntent = PendingIntent.getActivity(this, 0, notificationIntent,
-                PendingIntent.FLAG_UPDATE_CURRENT);
+        Intent notificationIntent = new Intent(this, MainActivity.class);
+        PendingIntent contentIntent = PendingIntent.getActivity(this, 0, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
         mBuilder.setContentIntent(contentIntent);
 
-        // Add as notification
         NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         manager.notify(0, mBuilder.build());
 
@@ -163,6 +163,4 @@ public class ListActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
-
-
 }
