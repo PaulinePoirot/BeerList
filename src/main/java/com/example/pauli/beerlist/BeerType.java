@@ -1,6 +1,5 @@
 package com.example.pauli.beerlist;
 
-import java.util.Date;
 import java.lang.String;
 
 /**
@@ -9,13 +8,19 @@ import java.lang.String;
 
 public class BeerType {
     public String name;
+    public String description;
+    public String shortName;
+
 
     public BeerType() {
 
     }
 
-    public BeerType(int id, String name, String createDate) {
+    public BeerType(String name, String description, String shortName) {
+
         this.name = name;
+        this.description = description;
+        this.shortName = shortName;
     }
 
 
@@ -26,5 +31,21 @@ public class BeerType {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getShortName() {
+        return shortName;
+    }
+
+    public void setShortName(String shortName) {
+        this.shortName = shortName;
     }
 }

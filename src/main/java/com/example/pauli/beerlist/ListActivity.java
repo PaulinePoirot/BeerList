@@ -34,7 +34,7 @@ import java.util.List;
 
 public class ListActivity extends AppCompatActivity {
 
-    private String url = "https://api.brewerydb.com/v2/categories/?key=320086ace998bced9bec2b1abd997aee&format=json";
+    private String url = "https://api.brewerydb.com/v2/styles/?key=320086ace998bced9bec2b1abd997aee&format=json";
 
     private RecyclerView mList;
 
@@ -92,6 +92,8 @@ public class ListActivity extends AppCompatActivity {
 
                         BeerType beerType = new BeerType();
                         beerType.setName(jsonObject.getString("name"));
+                        beerType.setShortName(jsonObject.getString("shortName"));
+                        beerType.setDescription(jsonObject.getString("description"));
 
                         typeList.add(beerType);
 

@@ -6,6 +6,20 @@
     android:orientation="vertical"
     android:padding="10dp">
 
+    shortName
+    <TextView
+        android:id="@+id/main_shortName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:singleLine="false"
+        android:layout_marginTop="10dp"
+        android:padding="10dp"
+        android:text="ShortName"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimary"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        />
 
     <TextView
         android:id="@+id/main_name"
@@ -18,7 +32,10 @@
         android:textAlignment="center"
         android:textColor="@color/colorPrimary"
         android:textSize="20sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:visibility="gone"/>
+
+
     <Button
         android:id="@+id/btnShare"
         style="?android:attr/borderlessButtonStyle"
@@ -29,6 +46,15 @@
         android:layout_below="@+id/tvPlaceName"
         android:layout_marginTop="10dp"
         android:text="@string/share" />
+    <TextView
+        android:id="@+id/main_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:singleLine="false"
+        android:layout_marginTop="10dp"
+        android:padding="10dp"
+        android:text="description"
+        android:visibility="gone"/>
 
 
 </LinearLayout>

@@ -35,6 +35,11 @@
                 android:value=".MainActivity" />
         </activity>
 
+        <activity android:name=".DetailActivity"
+            android:parentActivityName=".ListActivity">
+            </activity>
+
+
 
 
 
