@@ -15,6 +15,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
@@ -41,11 +42,6 @@ public class ListActivity extends AppCompatActivity {
     private DividerItemDecoration dividerItemDecoration;
     private List<BeerType> typeList;
     private RecyclerView.Adapter adapter;
-    NotificationCompat.Builder mBuilder =
-            new NotificationCompat.Builder(this)
-                   .setSmallIcon(R.drawable.beer_icon)
-                    .setContentTitle("Notifications Example")
-                    .setContentText("This is a test notification");
 
 
 
@@ -95,9 +91,7 @@ public class ListActivity extends AppCompatActivity {
                         JSONObject jsonObject = response.getJSONObject(i);
 
                         BeerType beerType = new BeerType();
-                        beerType.setId(jsonObject.getInt("id"));
                         beerType.setName(jsonObject.getString("name"));
-                        beerType.setCreateDate(jsonObject.getString("createDate"));
 
                         typeList.add(beerType);
 
@@ -123,8 +117,6 @@ public class ListActivity extends AppCompatActivity {
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(jsonObjectRequest);
 
-
-
     }
 
     @Override
@@ -144,13 +136,19 @@ public class ListActivity extends AppCompatActivity {
     }
 
     public void notification(){
+        NotificationCompat.Builder mBuilder =
+                new NotificationCompat.Builder(this)
+                        .setSmallIcon(R.drawable.beer_icon)
+                        .setContentTitle(getString(R.string.app_name))
+                        .setContentText(getString(R.string.beers_retrieved));
+
+
         Intent notificationIntent = new Intent(this, MainActivity.class);
         PendingIntent contentIntent = PendingIntent.getActivity(this, 0, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
         mBuilder.setContentIntent(contentIntent);
 
         NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         manager.notify(0, mBuilder.build());
-
 
     }
 

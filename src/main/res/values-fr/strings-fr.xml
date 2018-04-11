@@ -14,4 +14,12 @@
     <string name="beers_retrieved">Les bières ont bien été récupérées depuis l\'API.</string>
     <string name="beers_progress">Récupération des bières depuis l\'API en cours</string>
     <string name="loading">Chargement...</string>
+
+
+    <string name="share">Partager</string>
+    <string name="ready">Tu es prêt pour une </string>
+    <string name="tonight">ce soir ?</string>
+    <string name="send">Envoyer</string>
+
+
 </resources>

@@ -1,9 +1,11 @@
 package com.example.pauli.beerlist;
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.List;
@@ -30,11 +32,21 @@ public class BeerTypeAdaptater extends
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        BeerType beerType = list.get(position);
+        final BeerType beerType = list.get(position);
 
-        holder.textId.setText(String.valueOf(beerType.getId()));
         holder.textName.setText(String.valueOf(beerType.getName()));
-        holder.textCreateDate.setText(String.valueOf(beerType.getCreateDate()));
+
+        holder.share.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(Intent.ACTION_SEND);
+                intent.putExtra(Intent.EXTRA_TEXT,context.getString(R.string.ready)+"\n" + beerType.getName() + "\n"+ context.getString(R.string.tonight));
+                intent.setType("text/plain");
+                context.startActivity(Intent.createChooser(intent, context.getString(R.string.send)));
+
+            }
+        });
 
     }
 
@@ -45,16 +57,14 @@ public class BeerTypeAdaptater extends
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public TextView textId, textName, textCreateDate;
+        public Button share;
 
         public ViewHolder(View itemView) {
             super(itemView);
 
-            textId = itemView.findViewById(R.id.main_id);
+            share = itemView.findViewById(R.id.btnShare);
             textName = itemView.findViewById(R.id.main_name);
-            textCreateDate = itemView.findViewById(R.id.main_create_date);
         }
     }
-
-
 
 }
