@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Bizoune</string>
+    <string name="liste">Beer List</string>
+    <string name="recherche">Search Beer</string>
+    <string name="PageSearch">Register Search</string>
+    <string name="PageList">Register List</string>
+
+    <string name="error">A technical error occured. Please try again later.</string>
+    <string name="menu_info_button">Information</string>
+    <string name="get_beers_button">Get beers</string>
+    <string name="health_notification">Excessive consumption of alcohol is harmful to health!</string>
+    <string name="beers_retrieved">Beers successfully retrieved from the API.</string>
+    <string name="beers_progress">Currently retrieving beers from the API</string>
+    <string name="loading">Loading...</string>
+
+    <string name="share">Share</string>
+    <string name="ready">Are you ready for a </string>
+    <string name="tonight">tonight ?</string>
+    <string name="send">To send</string>
+
+
+
+
+</resources>
